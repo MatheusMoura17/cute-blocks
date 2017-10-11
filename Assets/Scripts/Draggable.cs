@@ -4,18 +4,18 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(LineRenderer))]
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(TargetJoint2D))]
 public class Draggable : MonoBehaviour {
 
-	public int damping = 7;
 	private bool dragging;
 
-	private Rigidbody2D myRigidbody;
+	private TargetJoint2D targetJoin;
 	private LineRenderer lineRenderer;
 
 	void Start(){
-		myRigidbody = GetComponent<Rigidbody2D> ();
+		targetJoin = GetComponent<TargetJoint2D> ();
 		lineRenderer = GetComponent<LineRenderer> ();
+		targetJoin.enabled = false;
 	}
 
 	void Update () {
@@ -23,22 +23,23 @@ public class Draggable : MonoBehaviour {
 			//movement
 			Vector2 targetPosition = new Vector2 (Input.mousePosition.x, Input.mousePosition.y);
 			targetPosition=Camera.main.ScreenToWorldPoint (targetPosition);
-			transform.position = Vector2.Lerp(transform.position,targetPosition,damping*Time.deltaTime);
+			targetJoin.target = targetPosition;
+
 			//line effect
 			lineRenderer.SetPositions (new Vector3[]{ transform.position, targetPosition });
-			myRigidbody.velocity = Vector2.zero;
 		}
 	}
 
 	void OnMouseDown(){
 		dragging = true;
 		lineRenderer.enabled = true;
+		targetJoin.enabled = true;
 	}
 
 	void OnMouseUp(){
 		dragging = false;
 		lineRenderer.enabled = false;
-		//myRigidbody.Sleep ();
+		targetJoin.enabled = false;
 	}
 		
 }
