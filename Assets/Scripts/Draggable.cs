@@ -4,13 +4,17 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(LineRenderer))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Draggable : MonoBehaviour {
 
 	public int damping = 7;
 	private bool dragging;
+
+	private Rigidbody2D myRigidbody;
 	private LineRenderer lineRenderer;
 
 	void Start(){
+		myRigidbody = GetComponent<Rigidbody2D> ();
 		lineRenderer = GetComponent<LineRenderer> ();
 	}
 
@@ -22,6 +26,7 @@ public class Draggable : MonoBehaviour {
 			transform.position = Vector2.Lerp(transform.position,targetPosition,damping*Time.deltaTime);
 			//line effect
 			lineRenderer.SetPositions (new Vector3[]{ transform.position, targetPosition });
+			myRigidbody.velocity = Vector2.zero;
 		}
 	}
 
@@ -33,6 +38,7 @@ public class Draggable : MonoBehaviour {
 	void OnMouseUp(){
 		dragging = false;
 		lineRenderer.enabled = false;
+		//myRigidbody.Sleep ();
 	}
 		
 }
