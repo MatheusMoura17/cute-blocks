@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Draggable : MonoBehaviour {
 
-	public int damping = 10;
+	public int damping = 7;
 	private bool dragging;
 	
 	// Update is called once per frame
