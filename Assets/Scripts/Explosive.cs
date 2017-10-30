@@ -33,7 +33,7 @@ public class Explosive : MonoBehaviour {
 
 	private void Explode(RaycastHit2D[] hits){
 
-		Instantiate (explosion, transform.position, transform.rotation);
+		Instantiate (explosion, transform.position, Quaternion.identity);
 
 		Collider2D[] colliders = Physics2D.OverlapCircleAll (transform.position, upstairsRayDistance);
 		foreach (Collider2D col in colliders) {
