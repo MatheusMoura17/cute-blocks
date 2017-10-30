@@ -33,6 +33,8 @@ public class Explosive : MonoBehaviour {
 
 	private void Explode(RaycastHit2D[] hits){
 
+		Instantiate (explosion, transform.position, transform.rotation);
+
 		Collider2D[] colliders = Physics2D.OverlapCircleAll (transform.position, upstairsRayDistance);
 		foreach (Collider2D col in colliders) {
 			Rigidbody2D targetRigidbody2D = col.gameObject.GetComponent<Rigidbody2D> ();

@@ -7895,11 +7895,10 @@ MonoBehaviour:
   rayMargin: 0.5
   maxItemsUpstairs: 3
   explosionForce: 500
-  explosionCollider: {fileID: 0}
   animator: {fileID: 47030129}
   effectStep1: {fileID: 1696838476}
   effectStep2: {fileID: 2104893188}
-  explosion: {fileID: 0}
+  explosion: {fileID: 1550931919174354, guid: 87a0293787e3945cbbb81be2884ed7ad, type: 2}
 --- !u!58 &1519701385
 CircleCollider2D:
   m_ObjectHideFlags: 0
