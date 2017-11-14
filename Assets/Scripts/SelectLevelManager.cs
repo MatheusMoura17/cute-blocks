@@ -19,4 +19,9 @@ public class SelectLevelManager : MonoBehaviour {
     {
         SceneManager.LoadScene(SceneManager.sceneCount - 1);
     }
+
+    public void ChangeLevel(string nameLevel)
+    {
+        SceneManager.LoadScene(nameLevel);
+    }
 }

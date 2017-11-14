@@ -195,7 +195,7 @@ RectTransform:
   m_GameObject: {fileID: 200761653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.018846346, y: 0.018846346, z: 0.018846346}
+  m_LocalScale: {x: 0.017409809, y: 0.017409809, z: 0.017409809}
   m_Children:
   - {fileID: 1113675169}
   - {fileID: 577292878}
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.041}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -988,7 +988,7 @@ GameObject:
   - component: {fileID: 1113675169}
   - component: {fileID: 1113675170}
   m_Layer: 0
-  m_Name: colorful-candy-background-vector-15751805
+  m_Name: MainMenuBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1001,8 +1001,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1113675168}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0612136, y: 47.754604, z: -4775.4614}
-  m_LocalScale: {x: 388.104, y: 388.10364, z: 388.10364}
+  m_LocalPosition: {x: 3.9, y: -4, z: -4775.4614}
+  m_LocalScale: {x: 354.97113, y: 244.25877, z: 388.10364}
   m_Children: []
   m_Father: {fileID: 200761657}
   m_RootOrder: 0
@@ -1098,7 +1098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.37931037, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.191, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1107,14 +1107,14 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 630489f43ce19d14a806d45977221197, type: 3}
-    m_FontSize: 42
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 42
     m_Alignment: 4
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
