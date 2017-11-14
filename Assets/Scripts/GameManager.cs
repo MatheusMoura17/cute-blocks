@@ -1,16 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
+
+	public Animator animatorGameWin;
+	public Animator animatorGameOver;
+	public Animator animatorStartGame;
+	public Text timerText;
+	public Text objeciveText;
+	public Text descText;
 
 	public int itemsToWin=3;
 	private TargetArea[] targetAreas;
 
-    public bool goNextLevel;
+	private bool gameStarted;
+	public float time=15;
+
+	public int nextLevel;
 
 	void Start () {
-        goNextLevel = false;
+		objeciveText.text = itemsToWin.ToString();
+		descText.text = string.Format ("Colete {0} items em {1} segundos", itemsToWin, time);
+		animatorStartGame.SetTrigger ("show");
         targetAreas = FindObjectsOfType<TargetArea> ();
 		foreach (TargetArea area in targetAreas)
 			area.onLinkItem = OnLinkItem;
@@ -25,11 +39,42 @@ public class GameManager : MonoBehaviour {
 			SetGameWin ();
 	}
 
+	public void StartGame(){
+		animatorStartGame.SetTrigger ("hide");
+		gameStarted = true;
+	}
+
+	public void BackToMenu(){
+		SceneManager.LoadScene ("MainMenu");
+	}
+
+	public void Restart(){
+		SceneManager.LoadScene (Application.loadedLevel);
+	}
+
+	public void NextLevel(){
+		SceneManager.LoadScene ("Level" + nextLevel);
+	}
+
 	private void SetGameWin(){
-        goNextLevel = true;
+		PlayerPrefs.SetInt ("level" + nextLevel, 1);
+		gameStarted = false;
+		animatorGameWin.SetTrigger("show");
     }
-	
+
+	private void SetGameOver(){
+		gameStarted = false;
+		animatorGameOver.SetTrigger("show");
+	}
+
 	void Update () {
-		
+		if (gameStarted) {
+			if (time > 0) {
+				time -= Time.deltaTime;
+				timerText.text = time.ToString ("00");
+			} else {
+				SetGameOver ();
+			}
+		}
 	}
 }
