@@ -7,13 +7,14 @@ public class GameManager : MonoBehaviour {
 	public int itemsToWin=3;
 	private TargetArea[] targetAreas;
 
-	// Use this for initialization
+    public bool goNextLevel;
+
 	void Start () {
-		targetAreas = FindObjectsOfType<TargetArea> ();
+        goNextLevel = false;
+        targetAreas = FindObjectsOfType<TargetArea> ();
 		foreach (TargetArea area in targetAreas)
 			area.onLinkItem = OnLinkItem;
 	}
-
 
 	void OnLinkItem(){
 		int linkedItemsCount = 0;
@@ -25,10 +26,9 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void SetGameWin(){
-		print ("Você ganhou!");
-	}
+        goNextLevel = true;
+    }
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
